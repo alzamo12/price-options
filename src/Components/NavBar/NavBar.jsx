@@ -18,14 +18,16 @@ const NavBar = () => {
 
 
     return (
-        <nav>
+        <nav className="text-black bg-yellow-200 p-6">
             <div className="md:hidden text-2xl" onClick={() => setOpen(!open)}>
                 {
                     open === true ? <ImCross></ImCross> : <RiMenu2Fill className=" "></RiMenu2Fill> 
                 }
                
             </div>
-            <ul className="md:flex"> {
+            <ul className={`md:flex absolute md:static duration-1000
+               ${open ? 'top-16 ' : '-top-64 '} 
+            bg-yellow-200 px-6 shadow-lg`}> {
                 routes.map(route => <Link key={route.id} route={route}></Link>)
             }
             </ul>
